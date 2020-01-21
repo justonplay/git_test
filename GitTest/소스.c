@@ -19,10 +19,13 @@ int main(void)
 int countNamesize(char* str)
 {
 	int i;
+	int is_name_kor = 0;
+
+	if (str[0] & 0x80) is_name_kor++;
 
 	for (i = 0; i < 39; i++)
 	{
-		if (str[i] == '\0') return i;
+		if (str[i] == '\0') return (i / (is_name_kor + 1));
 	}
-	return i;
+	return (i / (is_name_kor + 1));
 }
