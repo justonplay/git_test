@@ -1,34 +1,76 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
 
-int countNamesize(char* str);
+void print_Name(char *);
+int input_Name();
 
 int main(void)
 {
-	char name[39];
+	char buffer[2];
+	int name_size;
 	
 	printf("이름을 입력하세요 (최대 19자까지 입력)\n");
 	printf("======================================\n");
-	scanf("%[^\n]", name);
+	name_size = input_Name();
 
-	printf("\n입력한 이름은 %s 입니다.\n", name);
-	printf("입력한 이름의 글자수는 %d 입니다.\n", countNamesize(name));
+	printf("입력한 이름의 글자수는 %d 입니다.\n", name_size);
 	return 0;
 }
 
-int countNamesize(char* str)
+void print_Name(char* arr)
 {
-	int i;
-	int is_name_kor = 0;
-	int count = 0;
+	printf("\n입력한 이름은 %s 입니다.\n", arr);
 
-	if (str[0] & 0x80) is_name_kor++;
+	free(arr);
+}
 
-	for (i = 0; i < 39; i++)
+int input_Name()
+{
+	int count_bit = 0;
+	int count_cha = 0;
+	int is_buffer_kor = 0;
+	char buffer[2];
+	char* name;
+
+	name = (char*)malloc(2);
+
+	buffer[0] = getchar();
+
+	while (buffer[0] != '\n')
 	{
-		if (str[i] == '\0') return (count / (is_name_kor + 1));
-		if (str[i] == ' ') continue;
-		count++;
+		count_bit++;
+
+		if (buffer[0] & 0x80)
+		{
+			buffer[1] = getchar();
+			count_bit++;
+			is_buffer_kor = 1;
+		}
+		else
+		{
+			is_buffer_kor = 0;
+		}
+
+		name = (char*)realloc(name, count_bit + 1);
+
+		if (is_buffer_kor)
+		{
+			name[count_bit - 1] = buffer[1];
+			name[count_bit - 2] = buffer[0];
+		}
+		else
+		{
+			name[count_bit - 1] = buffer[0];
+		}
+
+		count_cha++;
+		
+		buffer[0] = getchar();
 	}
-	return (i / (is_name_kor + 1));
+	name[count_bit] = NULL;
+
+	print_Name(name);
+
+	return count_cha;
 }
