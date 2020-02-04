@@ -64,6 +64,8 @@ int input_Name()
 			name[count_bit - 1] = buffer[0];
 		}
 
+		if (name[count_bit - 1] == ' ') count_cha--;
+
 		count_cha++;
 		
 		buffer[0] = getchar();
