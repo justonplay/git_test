@@ -20,7 +20,7 @@ int main(void)
 
 void print_Name(char* arr)
 {
-	printf("\n입력한 이름은 %s 입니다.\n", arr);
+	printf("\n입력한 이름은\n\n%s\n입니다.\n", arr);
 
 	free(arr);
 }
