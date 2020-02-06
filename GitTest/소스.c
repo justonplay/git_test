@@ -7,7 +7,6 @@ int input_Name();
 
 int main(void)
 {
-	char buffer[2];
 	int name_size;
 	
 	printf("이름을 입력하세요\n");
