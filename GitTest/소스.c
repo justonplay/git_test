@@ -10,7 +10,7 @@ int main(void)
 	char buffer[2];
 	int name_size;
 	
-	printf("이름을 입력하세요 (최대 19자까지 입력)\n");
+	printf("이름을 입력하세요\n");
 	printf("======================================\n");
 	name_size = input_Name();
 
