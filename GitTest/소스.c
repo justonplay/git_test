@@ -9,17 +9,17 @@ int main(void)
 {
 	int name_size;
 	
-	printf("이름을 입력하세요\n");
+	printf("글을 입력하세요\n");
 	printf("=\n");
 	name_size = input_Name();
 
-	printf("입력한 이름의 글자수는 %d 입니다.\n", name_size);
+	printf("입력한 글의 글자수는 %d 입니다.\n", name_size);
 	return 0;
 }
 
 void print_Name(char* arr)
 {
-	printf("\n입력한 이름은\n\n%s\n입니다.\n", arr);
+	printf("\n입력한 글은\n\n%s\n입니다.\n", arr);
 
 	free(arr);
 }
