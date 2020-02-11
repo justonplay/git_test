@@ -10,18 +10,19 @@ int main(void)
 	int name_size;
 	int blank = 0;
 	
-	printf("±ÛÀ» ÀÔ·ÂÇÏ¼¼¿ä\n");
-	printf("=\n");
-	name_size = input_Name(&blank);
+	printf("ê¸€ì„ ì…ë ¥í•˜ì„¸ìš”\n");
+	printf("==================\n");
+	name_size = input_Name();
 
-	printf("ÀÔ·ÂÇÑ ±ÛÀÇ ±ÛÀÚ¼ö´Â %d ÀÔ´Ï´Ù.\n", name_size);
-	printf("ÀÔ·ÂÇÑ ±ÛÀÇ ±ÛÀÚ¼ö (°ø¹é Æ÷ÇÔ)Àº %d ÀÔ´Ï´Ù.\n", blank);
+
+	printf("ì…ë ¥í•œ ê¸€ì˜ ê¸€ììˆ˜ëŠ” %d ì…ë‹ˆë‹¤.\n", name_size);
+	printf("ì…ë ¥í•œ ê¸€ì˜ ê¸€ììˆ˜ (ê³µë°± í¬í•¨)ì€ %d ì…ë‹ˆë‹¤.\n", blank);
 	return 0;
 }
 
 void print_Name(char* arr)
 {
-	printf("\nÀÔ·ÂÇÑ ±ÛÀº\n\n%s\nÀÔ´Ï´Ù.\n", arr);
+	printf("\nì…ë ¥í•œ ê¸€ì€\n\n%s\nì…ë‹ˆë‹¤.\n", arr);
 
 	free(arr);
 }
