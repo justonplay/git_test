@@ -9,12 +9,10 @@ int main(void)
 {
 	int name_size;
 	int blank = 0;
-
 	
 	printf("글을 입력하세요\n");
 	printf("==================\n");
-	name_size = input_Name();
-
+	name_size = input_Name(&blank);
 
 	printf("입력한 글의 글자수는 %d 입니다.\n", name_size);
 	printf("입력한 글의 글자수 (공백 포함)은 %d 입니다.\n", blank);
