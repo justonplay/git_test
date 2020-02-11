@@ -4,14 +4,14 @@
 #include <time.h>
 
 void print_Name(char *);
-int input_Name(int *, int *);
+int input_Name(int *, float *);
 float calc_type_speed(int, int);
 
 int main(void)
 {
 	int name_size;
 	int blank = 0;
-	int type_speed;
+	float type_speed;
 	
 	printf("글을 입력하세요\n");
 	printf("==================\n");
@@ -19,7 +19,7 @@ int main(void)
 
 	printf("입력한 글의 글자수는 %d 입니다.\n", name_size);
 	printf("입력한 글의 글자수 (공백 포함)은 %d 입니다.\n", blank);
-	printf("글을 입력한 평균 타속은 %d타 (초당) 입니다.\n", type_speed);
+	printf("글을 입력한 평균 타속은 %0.3f자 (초당) 입니다.\n", type_speed);
 	return 0;
 }
 
@@ -30,7 +30,7 @@ void print_Name(char* arr)
 	free(arr);
 }
 
-int input_Name(int *count_cha_blank, int *type_speed)
+int input_Name(int *count_cha_blank, float *type_speed)
 {
 	int count_bit = 0;
 	int count_cha = 0;
@@ -41,10 +41,10 @@ int input_Name(int *count_cha_blank, int *type_speed)
 	char* name;
 
 	name = (char*)malloc(2);
-
+	start_time = clock();
 	buffer[0] = getchar();
 
-	start_time = clock();
+
 
 	while (buffer[0] != '\n')
 	{
