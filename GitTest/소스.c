@@ -3,28 +3,31 @@
 #include <stdlib.h>
 
 void print_Name(char *);
-int input_Name();
+int input_Name(int *);
 
 int main(void)
 {
 	int name_size;
+	int blank = 0;
 	
-	printf("±ÛÀ» ÀÔ·ÂÇÏ¼¼¿ä\n");
+	printf("ê¸€ì„ ì…ë ¥í•˜ì„¸ìš”\n");
 	printf("==================\n");
 	name_size = input_Name();
 
-	printf("ÀÔ·ÂÇÑ ±ÛÀÇ ±ÛÀÚ¼ö´Â %d ÀÔ´Ï´Ù.\n", name_size);
+
+	printf("ì…ë ¥í•œ ê¸€ì˜ ê¸€ììˆ˜ëŠ” %d ì…ë‹ˆë‹¤.\n", name_size);
+	printf("ì…ë ¥í•œ ê¸€ì˜ ê¸€ììˆ˜ (ê³µë°± í¬í•¨)ì€ %d ì…ë‹ˆë‹¤.\n", blank);
 	return 0;
 }
 
 void print_Name(char* arr)
 {
-	printf("\nÀÔ·ÂÇÑ ±ÛÀº\n\n%s\nÀÔ´Ï´Ù.\n", arr);
+	printf("\nì…ë ¥í•œ ê¸€ì€\n\n%s\nì…ë‹ˆë‹¤.\n", arr);
 
 	free(arr);
 }
 
-int input_Name()
+int input_Name(int *count_cha_blank)
 {
 	int count_bit = 0;
 	int count_cha = 0;
@@ -66,6 +69,7 @@ int input_Name()
 		if (name[count_bit - 1] == ' ') count_cha--;
 
 		count_cha++;
+		(*count_cha_blank)++;
 		
 		buffer[0] = getchar();
 	}
