@@ -9,6 +9,7 @@ int main(void)
 {
 	int name_size;
 	int blank = 0;
+
 	
 	printf("글을 입력하세요\n");
 	printf("==================\n");
