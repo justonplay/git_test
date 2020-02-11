@@ -138,7 +138,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="소스.c" />
+    <ClCompile Include="소스.c">
+      <FileType>CppClass</FileType>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Image.bmp" />
