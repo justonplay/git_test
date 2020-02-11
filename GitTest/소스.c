@@ -3,17 +3,19 @@
 #include <stdlib.h>
 
 void print_Name(char *);
-int input_Name();
+int input_Name(int *);
 
 int main(void)
 {
 	int name_size;
+	int blank = 0;
 	
 	printf("글을 입력하세요\n");
 	printf("=\n");
-	name_size = input_Name();
+	name_size = input_Name(&blank);
 
 	printf("입력한 글의 글자수는 %d 입니다.\n", name_size);
+	printf("입력한 글의 글자수 (공백 포함)은 %d 입니다.\n", blank);
 	return 0;
 }
 
@@ -24,11 +26,10 @@ void print_Name(char* arr)
 	free(arr);
 }
 
-int input_Name()
+int input_Name(int *count_cha_blank)
 {
 	int count_bit = 0;
 	int count_cha = 0;
-	int count_cha_blank = 0;
 	int is_buffer_kor = 0;
 	char buffer[2];
 	char* name;
@@ -67,7 +68,7 @@ int input_Name()
 		if (name[count_bit - 1] == ' ') count_cha--;
 
 		count_cha++;
-		count_cha_blank++;
+		(*count_cha_blank)++;
 		
 		buffer[0] = getchar();
 	}
