@@ -28,6 +28,7 @@ int input_Name()
 {
 	int count_bit = 0;
 	int count_cha = 0;
+	int count_cha_blank = 0;
 	int is_buffer_kor = 0;
 	char buffer[2];
 	char* name;
@@ -66,6 +67,7 @@ int input_Name()
 		if (name[count_bit - 1] == ' ') count_cha--;
 
 		count_cha++;
+		count_cha_blank++;
 		
 		buffer[0] = getchar();
 	}
