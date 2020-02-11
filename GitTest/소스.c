@@ -10,7 +10,7 @@ int main(void)
 	int name_size;
 	
 	printf("글을 입력하세요\n");
-	printf("=\n");
+	printf("==================\n");
 	name_size = input_Name();
 
 	printf("입력한 글의 글자수는 %d 입니다.\n", name_size);
